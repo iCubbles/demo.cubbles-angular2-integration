@@ -20,7 +20,7 @@ npm install -g angular-cli
 
 2. generate a new Angular2 application, with everything you need  
 ```
-ng new demo.cubbles-angular2-integration
+ng new cubbles-angular2-integration
 ```
 
 3. create three components, angular-cli will also add them to app.module.ts
