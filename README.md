@@ -11,7 +11,12 @@ This repository contains some examples how to integrate Cubbles in an Angular2 a
 ##Run locally
 This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to get an Angular2 application is the [angular-cli](https://github.com/angular/). 
 
-Just follow this steps, after you install Node.js:
+You can just clone this repository and run 
+```
+npm install
+```
+
+or just follow this steps and create your own demo:
 
 1. install angular-cli globally
 ```
