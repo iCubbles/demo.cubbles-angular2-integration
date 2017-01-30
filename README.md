@@ -13,24 +13,24 @@ This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to 
 
 Just follow this steps, after you install Node.js:
 
-1. 
+1. install angular-cli globally
 ```
 npm install -g angular-cli
 ```
 
-2.
+2. generate a new Angular2 application, with everything you need  
 ```
 ng new angular2-integration
 ```
 
-3.
+3. create three components, angular-cli will also add them to app.module.ts
 ```
 ng generate component demo1
 ng generate component demo2
 ng generate component demo3
 ```
 
-4.
+4. createt the directive for the cubbles component, just copy-paste the content from this repository
 ```
 ng generate directive pie-chart
 ```
