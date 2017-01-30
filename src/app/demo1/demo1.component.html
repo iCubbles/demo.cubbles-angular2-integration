@@ -1,3 +1,190 @@
-<p>
-  demo1 works!
-</p>
+<main>
+  <div class="container">
+    <article>
+      <h3>Demo 1</h3>
+      <p class="flow-text">This demo shows how to easily integrate Cubbles into an existing Angular 2 Application. The project is build with the
+        angular-cli and Cubbles Runtime Extension 2.1.0 (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
+          target="_blank">source on github</a>)
+      </p>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <p>
+        In this given scenario the Cubbles component instance is wrapped in a <code>@Directive</code> with a selector named
+        "
+        <code>&lt;pie-chart&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>        and can be set inline <code>[dataSet1]="value1"</code>, where <code>value1</code> can be a fixed value or a variable
+        of the <code>@Component</code>.
+      </p>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <p>
+        The HTML part and the Component part are common use of Angular2. The Directive on the other hand is build around cubbles.
+        Take a look at <code>ElementRef</code>, <code>HostListener</code>and <code>Input</code> from the angular/core.
+      </p>
+
+      <ul>
+        <li><code>ElementRef</code>: You will now get the element of the directive injected into the constructor and create a
+          field "elementRef"</li>
+        <li><code>@HostListener</code>: Now you can listen to events, <code>window:cifReady</code> is the one we need to wait
+          for
+        </li>
+        <li><code>@Input</code>: This binds a handle to the values coming to the directive</li>
+      </ul>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <div class="row">
+        <div class="col s6 input-form">
+          <p>Change the values for the <code>&lt;pie-chart&gt;</code> components input slot "dataset1", "dataset2" and "dataset3".</p>
+          <form>
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value1" name="value1" #name="ngModel">
+            </div>
+
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value2" name="value2" #name="ngModel">
+            </div>
+
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value3" name="value3" #name="ngModel">
+            </div>
+          </form>
+        </div>
+
+        <div class="col s6" cubx-core-crc>
+          <pie-chart cubx-webpackage-id="com.incowia.lib.chart-library@0.3.0-SNAPSHOT" [dataSet1]="value1" [dataSet2]="value2" [dataSet3]="value3"></pie-chart>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <ul class="collapsible" data-collapsible="expandable">
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: index.html</div>
+          <div class="collapsible-body">
+            <pre><code>
+&lt;head&gt;
+    ...
+  <!-- Include Cubbles -->
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.1.0/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.1.0/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
+    ...
+&lt;/head&gt;
+
+&lt;html&gt;
+  
+  ...
+
+  &lt;form&gt;
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value1&quot; name=&quot;value1&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value2&quot; name=&quot;value2&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value3&quot; name=&quot;value3&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+  ...
+
+&lt;/html&gt;</code></pre>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
+          <div class="collapsible-body">
+            <pre><code class="javascript">
+import {{ '{' }} Component } from '@angular/core';
+
+@Component({{ '{' }}
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent {{ '{' }}
+  value1 = 10;
+  value2 = 20;
+  value3 = 30;
+
+  constructor() {{ '{' }} }
+}
+              </code></pre>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Directive</div>
+          <div class="collapsible-body">
+            <pre>
+              <code class="javascript">
+import {{ '{' }} Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+@Directive({{ '{' }}
+  selector: 'pie-chart'
+})
+export class PieChartDirective {{ '{' }}
+  private _cifReady: boolean;
+
+  private _dataSet1: number;
+  private _dataSet2: number;
+  private _dataSet3: number;
+
+  constructor(private elementRef: ElementRef) {{ '{' }}
+    this._cifReady = false;
+  }
+
+  @HostListener('window:cifReady', ['$event']) onCifReady(event) {{ '{' }}
+    this._cifReady = true;
+    this.updateElement();
+  }
+
+  updateElement() {{ '{' }}
+    if (this._cifReady) {{ '{' }}
+      this.elementRef.nativeElement.setDataColumns([
+        ["dataSet1", this._dataSet1],
+        ["dataSet2", this._dataSet2],
+        ["dataSet3", this._dataSet3]
+      ]);
+    }
+  }
+
+  @Input()
+  set dataSet1(value: number) {{ '{' }}
+    this._dataSet1 = value;
+    this.updateElement();
+  }
+
+  @Input()
+  set dataSet2(value: number) {{ '{' }}
+    this._dataSet2 = value;
+    this.updateElement();
+  }
+
+  @Input()
+  set dataSet3(value: number) {{ '{' }}
+    this._dataSet3 = value;
+    this.updateElement();
+  }
+}
+
+              </code>
+            </pre>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </div>
+</main>
