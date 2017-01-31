@@ -14,7 +14,8 @@
       <p>
         In this given scenario the Cubbles component instance is wrapped in a <code>@Directive</code> with a selector named
         "
-        <code>&lt;pie-chart&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>        and can be set inline <code>[dataSet1]="value1"</code>, where <code>value1</code> can be a fixed value or a variable
+        <code>&lt;pie-chart&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>
+        and can be set inline <code>[dataSet1]="value1"</code>, where <code>value1</code> can be a fixed value or a variable
         of the <code>@Component</code>.
       </p>
     </article>
@@ -82,6 +83,16 @@
   
   ...
 
+&lt;/html&gt;</code></pre>
+          </div>
+        </li>
+
+                <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
+          <div class="collapsible-body">
+            <pre><code>
+  ...
+
   &lt;form&gt;
     &lt;div class=&quot;range-field&quot;&gt;
       &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value1&quot; name=&quot;value1&quot; #name=&quot;ngModel&quot;&gt;
@@ -97,40 +108,45 @@
   &lt;/form&gt;
 
   ...
-
-&lt;/html&gt;</code></pre>
+            </code></pre>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
-          <div class="collapsible-body">
-            <pre><code class="javascript">
-import {{ '{' }} Component } from '@angular/core';
+          <div class="collapsible-body"><pre><code class="javascript">
+
+import {{ '{' }} Component, OnInit } from '@angular/core';
 
 @Component({{ '{' }}
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-demo1',
+  templateUrl: './demo1.component.html'
 })
-
-export class AppComponent {{ '{' }}
+export class Demo1Component implements OnInit {{ '{' }}
   value1 = 10;
   value2 = 20;
   value3 = 30;
 
-  constructor() {{ '{' }} }
+  constructor() {{ '{' }}
+  }
+
+  ngOnInit() {{ '{' }}
+    // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
+    var event = document.createEvent('CustomEvent');
+    event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
+ 
+    // dispatch this 'CubxComponentLinked' event
+    document.dispatchEvent(event);
+  }
 }
+              
               </code></pre>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Directive</div>
-          <div class="collapsible-body">
-            <pre>
-              <code class="javascript">
-import {{ '{' }} Directive, ElementRef, HostListener, Input } from '@angular/core';
+          <div class="collapsible-body"><pre><code class="javascript">import {{ '{' }} Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({{ '{' }}
   selector: 'pie-chart'
@@ -178,10 +194,7 @@ export class PieChartDirective {{ '{' }}
     this._dataSet3 = value;
     this.updateElement();
   }
-}
-
-              </code>
-            </pre>
+}</code></pre>
           </div>
         </li>
       </ul>
