@@ -1,3 +1,105 @@
-<p>
-  demo3 works!
-</p>
+<main>
+  <div class="container">
+    <article>
+      <h3>Demo 3</h3>
+      <p class="flow-text">This demo shows how to easily integrate Cubbles into an existing Angular 2 Application. The project is build with the
+        angular-cli and Cubbles Runtime Extension 2.1.0 (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
+          target="_blank">source on github</a>)
+      </p>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <p>
+        The simplest way to add a cubbles component is to add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>@NgModule</code>,
+        allowing custom HTML Element.
+      </p>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <federal-state-elections cubx-webpackage-id="com.incowia.demo.elections@0.1.0-SNAPSHOT"></federal-state-elections>
+    </article>
+
+    <article>
+      <ul class="collapsible" data-collapsible="expandable">
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: index.html</div>
+          <div class="collapsible-body">
+            <pre><code>
+&lt;head&gt;
+    ...
+  <!-- Include Cubbles -->
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.1.0/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.1.0/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
+    ...
+&lt;/head&gt;
+
+&lt;html&gt;
+  
+  ...
+&lt;/html&gt;</code></pre>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
+          <div class="collapsible-body">
+            <pre><code>
+      &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;</code></pre>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
+          <div class="collapsible-body">
+            <pre><code class="javascript">
+              import {{ '{' }} Component, OnInit } from '@angular/core';
+
+@Component({{ '{' }}
+  selector: 'app-demo3',
+  templateUrl: './demo3.component.html'
+})
+export class Demo3Component implements OnInit {{ '{' }}
+
+  constructor() {{ '{' }} }
+
+  ngOnInit() {{ '{' }}
+    // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
+    var event = document.createEvent('CustomEvent');
+    event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
+
+    // dispatch this 'CubxComponentLinked' event
+    document.dispatchEvent(event);
+  }
+
+}</code></pre>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
+          <div class="collapsible-body">
+            <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+...
+
+
+@NgModule({{ '{' }}
+
+  ...
+  
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
+  ...
+})
+export class AppModule {{ '{' }} }
+</code></pre>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </div>
+</main>
