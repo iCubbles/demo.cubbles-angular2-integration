@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { Demo1Component } from './demo1/demo1.component';
 import { Demo2Component } from './demo2/demo2.component';
 import { Demo3Component } from './demo3/demo3.component';
+
 import { PieChartDirective } from './pie-chart.directive';
+import { DateInputDirective } from './date-input.directive';
 
 const appRoutes: Routes = [
   { path: 'demo1', component: Demo1Component },
@@ -27,7 +29,9 @@ const appRoutes: Routes = [
     Demo1Component,
     Demo2Component,
     Demo3Component,
-    PieChartDirective
+
+    PieChartDirective,
+    DateInputDirective
   ],
   imports: [
     BrowserModule,

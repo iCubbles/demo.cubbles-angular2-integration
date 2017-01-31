@@ -1,3 +1,49 @@
-<p>
-  demo2 works!
-</p>
+<article>
+  <div class="row">
+    <div class="col s6 input-form">
+      <p>Change the values of the <code>&lt;cubx-date-input&gt;</code> component input slot "label", "value", "disabled" and
+        "required".
+      </p>
+      <form>
+        <div class="row">
+          <div class="input-field">
+            <input type="text" [(ngModel)]="label" name="label" #name="ngModel">
+            <label>Label</label>
+          </div>
+
+          <div class="input-field">
+            <input type="text" [(ngModel)]="value" name="value" #name="ngModel">
+            <label>Value (yyyy-mm-dd) </label>
+          </div>
+
+          <div class="switch">
+            <label>
+              Optional
+              <input type="checkbox" [(ngModel)]="required" name="required" #name="ngModel">
+              <span class="lever"></span>
+              Required
+            </label>
+          </div>
+
+          <div class="switch">
+            <label>
+              Active
+              <input type="checkbox" [(ngModel)]="disabled" name="disabled" #name="ngModel">
+              <span class="lever"></span>
+              Disabled
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col s6" cubx-core-crc>
+      <form>
+        <cubx-date-input cubx-webpackage-id="com.incowia.basic-html-components@1.0" [label]="label" [value]="value" [required]="required"
+          [disabled]="disabled" (valueChanged)="newValue=$event"></cubx-date-input>
+        <br /> Value from the bound output slot: {{newValue}}
+        <br /> <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</article>
