@@ -14,10 +14,9 @@
       <p>
         In this given scenario the Cubbles component instance is wrapped in a <code>@Directive</code> with a selector named
         "
-        <code>&lt;cubx-date-input&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>
-        and can be set inline <code>[label]="label"</code>, where <code>label</code> can be a fixed value or a variable of
-        the <code>@Component</code>. The output slots are bound via an Event <code>valueChanged</code> marked as <code>@Output</code>
-        and can be listened on from the <code>@Component</code> or via a simple set inline.
+        <code>&lt;pie-chart&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>
+        and can be set inline <code>[dataSet1]="value1"</code>, where <code>value1</code> can be a fixed value or a variable
+        of the <code>@Component</code>.
       </p>
     </article>
 
@@ -25,10 +24,18 @@
 
     <article>
       <p>
-       In comparison to the directive in Demo1, this Directive also handles the output slots of a cubbles component. After 
-       the <code>window:cifReady</code> event, a simple onchange event was added to the element, you can wait for anything,
-       even an event from outside of the component or a timer. You can even create a complex object and emit it.
+        The HTML part and the Component part are common use of Angular2. The Directive on the other hand is build around cubbles.
+        Take a look at <code>ElementRef</code>, <code>HostListener</code>and <code>Input</code> from the angular/core.
       </p>
+
+      <ul>
+        <li><code>ElementRef</code>: You will now get the element of the directive injected into the constructor and create a
+          field "elementRef"</li>
+        <li><code>@HostListener</code>: Now you can listen to events, <code>window:cifReady</code> is the one we need to wait
+          for
+        </li>
+        <li><code>@Input</code>: This binds a handle to the values coming to the directive</li>
+      </ul>
     </article>
 
     <div class="divider"></div>
@@ -36,47 +43,24 @@
     <article>
       <div class="row">
         <div class="col s6 input-form">
-          <p>Change the values of the <code>&lt;cubx-date-input&gt;</code> component input slot "label", "value", "disabled"
-            and "required".
-          </p>
+          <p>Change the values of the <code>&lt;pie-chart&gt;</code> component input slot "dataset1", "dataset2" and "dataset3".</p>
           <form>
-            <div class="input-field">
-              <input type="text" [(ngModel)]="label" name="label" #name="ngModel">
-              <label>Label</label>
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value1" name="value1" #name="ngModel">
             </div>
 
-            <div class="input-field">
-              <input type="text" [(ngModel)]="value" name="value" #name="ngModel">
-              <label>Value (yyyy-mm-dd) </label>
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value2" name="value2" #name="ngModel">
             </div>
 
-            <div class="switch">
-              <label>
-              Optional
-              <input type="checkbox" [(ngModel)]="required" name="required" #name="ngModel">
-              <span class="lever"></span>
-              Required
-            </label>
-            </div>
-
-            <div class="switch">
-              <label>
-              Active
-              <input type="checkbox" [(ngModel)]="disabled" name="disabled" #name="ngModel">
-              <span class="lever"></span>
-              Disabled
-            </label>
+            <div class="range-field">
+              <input type="range" min="0" max="100" [(ngModel)]="value3" name="value3" #name="ngModel">
             </div>
           </form>
         </div>
 
         <div class="col s6" cubx-core-crc>
-          <form>
-            <cubx-date-input cubx-webpackage-id="com.incowia.basic-html-components@1.0" [label]="label" [value]="value" [required]="required"
-              [disabled]="disabled" (valueChanged)="newValue=$event"></cubx-date-input>
-            <br /> Value from the bound output slot: {{newValue}}
-            <br /> <button class="btn" type="submit">Submit</button>
-          </form>
+          <pie-chart cubx-webpackage-id="com.incowia.lib.chart-library@0.3.0-SNAPSHOT" [dataSet1]="value1" [dataSet2]="value2" [dataSet3]="value3"></pie-chart>
         </div>
       </div>
     </article>
@@ -98,73 +82,50 @@
 &lt;html&gt;
   
   ...
+
 &lt;/html&gt;</code></pre>
           </div>
         </li>
 
-        <li>
+                <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
           <div class="collapsible-body">
-            <pre><code>        &lt;div class=&quot;col s6 input-form&quot;&gt;
-          &lt;p&gt;Change the values of the &lt;code&gt;&amp;lt;cubx-date-input&amp;gt;&lt;/code&gt; component input slot &quot;label&quot;, &quot;value&quot;, &quot;disabled&quot;
-            and &quot;required&quot;.
-          &lt;/p&gt;
-          &lt;form&gt;
-            &lt;div class=&quot;input-field&quot;&gt;
-              &lt;input type=&quot;text&quot; [(ngModel)]=&quot;label&quot; name=&quot;label&quot; #name=&quot;ngModel&quot;&gt;
-              &lt;label&gt;Label&lt;/label&gt;
-            &lt;/div&gt;
+            <pre><code>
+  ...
 
-            &lt;div class=&quot;input-field&quot;&gt;
-              &lt;input type=&quot;text&quot; [(ngModel)]=&quot;value&quot; name=&quot;value&quot; #name=&quot;ngModel&quot;&gt;
-              &lt;label&gt;Value (yyyy-mm-dd) &lt;/label&gt;
-            &lt;/div&gt;
+  &lt;form&gt;
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value1&quot; name=&quot;value1&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
 
-            &lt;div class=&quot;switch&quot;&gt;
-              &lt;label&gt;
-              Optional
-              &lt;input type=&quot;checkbox&quot; [(ngModel)]=&quot;required&quot; name=&quot;required&quot; #name=&quot;ngModel&quot;&gt;
-              &lt;span class=&quot;lever&quot;&gt;&lt;/span&gt;
-              Required
-            &lt;/label&gt;
-            &lt;/div&gt;
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value2&quot; name=&quot;value2&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
 
-            &lt;div class=&quot;switch&quot;&gt;
-              &lt;label&gt;
-              Active
-              &lt;input type=&quot;checkbox&quot; [(ngModel)]=&quot;disabled&quot; name=&quot;disabled&quot; #name=&quot;ngModel&quot;&gt;
-              &lt;span class=&quot;lever&quot;&gt;&lt;/span&gt;
-              Disabled
-            &lt;/label&gt;
-            &lt;/div&gt;
-          &lt;/form&gt;
-        &lt;/div&gt;
+    &lt;div class=&quot;range-field&quot;&gt;
+      &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;value3&quot; name=&quot;value3&quot; #name=&quot;ngModel&quot;&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
 
-        &lt;div class=&quot;col s6&quot; cubx-core-crc&gt;
-          &lt;form&gt;
-            &lt;cubx-date-input cubx-webpackage-id=&quot;com.incowia.basic-html-components@1.0&quot; [label]=&quot;label&quot; [value]=&quot;value&quot; [required]=&quot;required&quot;
-              [disabled]=&quot;disabled&quot; (valueChanged)=&quot;newValue=$event&quot;&gt;&lt;/cubx-date-input&gt;
-            &lt;br /&gt; Value from the bound output slot: {{'{{'}}newValue}}
-            &lt;br /&gt; &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
-          &lt;/form&gt;
-        &lt;/div&gt;</code></pre>
+  ...
+            </code></pre>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
-          <div class="collapsible-body">
-            <pre><code class="javascript">import {{ '{' }} Component, OnInit } from '@angular/core';
+          <div class="collapsible-body"><pre><code class="javascript">
+
+import {{ '{' }} Component, OnInit } from '@angular/core';
 
 @Component({{ '{' }}
   selector: 'app-demo2',
   templateUrl: './demo2.component.html'
 })
 export class Demo2Component implements OnInit {{ '{' }}
-  label = "Geburtsdatum";
-  value = "2017-02-01";
-  required = false;
-  disabled = false;
+  value1 = 10;
+  value2 = 20;
+  value3 = 30;
 
   constructor() {{ '{' }}
   }
@@ -173,86 +134,67 @@ export class Demo2Component implements OnInit {{ '{' }}
     // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
     var event = document.createEvent('CustomEvent');
     event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
-    
+ 
     // dispatch this 'CubxComponentLinked' event
     document.dispatchEvent(event);
   }
-}</code></pre>
+}
+              
+              </code></pre>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Directive</div>
-          <div class="collapsible-body">
-            <pre><code class="javascript">import {{ '{' }} Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
+          <div class="collapsible-body"><pre><code class="javascript">import {{ '{' }} Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({{ '{' }}
-  selector: 'cubx-date-input'
+  selector: 'pie-chart'
 })
-export class DateInputDirective {{ '{' }}
+export class PieChartDirective {{ '{' }}
   private _cifReady: boolean;
 
-  private _value: string;
-  private _label: number;
-  private _disabled: number;
-  private _required: number;
+  private _dataSet1: number;
+  private _dataSet2: number;
+  private _dataSet3: number;
 
   constructor(private elementRef: ElementRef) {{ '{' }}
     this._cifReady = false;
   }
 
-  @Output("valueChanged")
-  valueChangedEvent: EventEmitter&lt;string&gt; = new EventEmitter();
-
   @HostListener('window:cifReady', ['$event']) onCifReady(event) {{ '{' }}
     this._cifReady = true;
     this.updateElement();
-
-    var self = this;
-
-    // send init value
-    self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-
-    // onchange, send new value
-    this.elementRef.nativeElement.onchange = function () {{ '{' }}
-      self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-    };
   }
 
   updateElement() {{ '{' }}
     if (this._cifReady) {{ '{' }}
-      this.elementRef.nativeElement.setValue(this._value);
-      this.elementRef.nativeElement.setLabel(this._label);
-      this.elementRef.nativeElement.setDisabled(this._disabled);
-      this.elementRef.nativeElement.setRequired(this._required);
+      this.elementRef.nativeElement.setDataColumns([
+        ["dataSet1", this._dataSet1],
+        ["dataSet2", this._dataSet2],
+        ["dataSet3", this._dataSet3]
+      ]);
     }
   }
 
   @Input()
-  set value(value: string) {{ '{' }}
-    this._value = value;
+  set dataSet1(value: number) {{ '{' }}
+    this._dataSet1 = value;
     this.updateElement();
   }
 
   @Input()
-  set label(value: number) {{ '{' }}
-    this._label = value;
+  set dataSet2(value: number) {{ '{' }}
+    this._dataSet2 = value;
     this.updateElement();
   }
 
   @Input()
-  set disabled(value: number) {{ '{' }}
-    this._disabled = value;
+  set dataSet3(value: number) {{ '{' }}
+    this._dataSet3 = value;
     this.updateElement();
   }
-
-  @Input()
-  set required(value: number) {{ '{' }}
-    this._required = value;
-    this.updateElement();
-  }
-}
-</code></pre>
+}</code></pre>
           </div>
         </li>
       </ul>

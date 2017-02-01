@@ -12,15 +12,73 @@
 
     <article>
       <p>
-        The simplest way to add a cubbles component is to add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>@NgModule</code>,
-        allowing custom HTML Element.
+        In this given scenario the Cubbles component instance is wrapped in a <code>@Directive</code> with a selector named
+        "
+        <code>&lt;cubx-date-input&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>
+        and can be set inline <code>[label]="label"</code>, where <code>label</code> can be a fixed value or a variable of
+        the <code>@Component</code>. The output slots are bound via an Event <code>valueChanged</code> marked as <code>@Output</code>
+        and can be listened on from the <code>@Component</code> or via a simple set inline.
       </p>
     </article>
 
     <div class="divider"></div>
 
     <article>
-      <federal-state-elections cubx-webpackage-id="com.incowia.demo.elections@0.1.0-SNAPSHOT"></federal-state-elections>
+      <p>
+       In comparison to the directive in Demo1, this Directive also handles the output slots of a cubbles component. After 
+       the <code>window:cifReady</code> event, a simple onchange event was added to the element, you can wait for anything,
+       even an event from outside of the component or a timer. You can even create a complex object and emit it.
+      </p>
+    </article>
+
+    <div class="divider"></div>
+
+    <article>
+      <div class="row">
+        <div class="col s6 input-form">
+          <p>Change the values of the <code>&lt;cubx-date-input&gt;</code> component input slot "label", "value", "disabled"
+            and "required".
+          </p>
+          <form>
+            <div class="input-field">
+              <input type="text" [(ngModel)]="label" name="label" #name="ngModel">
+              <label>Label</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" [(ngModel)]="value" name="value" #name="ngModel">
+              <label>Value (yyyy-mm-dd) </label>
+            </div>
+
+            <div class="switch">
+              <label>
+              Optional
+              <input type="checkbox" [(ngModel)]="required" name="required" #name="ngModel">
+              <span class="lever"></span>
+              Required
+            </label>
+            </div>
+
+            <div class="switch">
+              <label>
+              Active
+              <input type="checkbox" [(ngModel)]="disabled" name="disabled" #name="ngModel">
+              <span class="lever"></span>
+              Disabled
+            </label>
+            </div>
+          </form>
+        </div>
+
+        <div class="col s6" cubx-core-crc>
+          <form>
+            <cubx-date-input cubx-webpackage-id="com.incowia.basic-html-components@1.0" [label]="label" [value]="value" [required]="required"
+              [disabled]="disabled" (valueChanged)="newValue=$event"></cubx-date-input>
+            <br /> Value from the bound output slot: {{newValue}}
+            <br /> <button class="btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </article>
 
     <article>
@@ -47,55 +105,153 @@
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
           <div class="collapsible-body">
-            <pre><code>
-      &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;</code></pre>
+            <pre><code>        &lt;div class=&quot;col s6 input-form&quot;&gt;
+          &lt;p&gt;Change the values of the &lt;code&gt;&amp;lt;cubx-date-input&amp;gt;&lt;/code&gt; component input slot &quot;label&quot;, &quot;value&quot;, &quot;disabled&quot;
+            and &quot;required&quot;.
+          &lt;/p&gt;
+          &lt;form&gt;
+            &lt;div class=&quot;input-field&quot;&gt;
+              &lt;input type=&quot;text&quot; [(ngModel)]=&quot;label&quot; name=&quot;label&quot; #name=&quot;ngModel&quot;&gt;
+              &lt;label&gt;Label&lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;input-field&quot;&gt;
+              &lt;input type=&quot;text&quot; [(ngModel)]=&quot;value&quot; name=&quot;value&quot; #name=&quot;ngModel&quot;&gt;
+              &lt;label&gt;Value (yyyy-mm-dd) &lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;switch&quot;&gt;
+              &lt;label&gt;
+              Optional
+              &lt;input type=&quot;checkbox&quot; [(ngModel)]=&quot;required&quot; name=&quot;required&quot; #name=&quot;ngModel&quot;&gt;
+              &lt;span class=&quot;lever&quot;&gt;&lt;/span&gt;
+              Required
+            &lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;switch&quot;&gt;
+              &lt;label&gt;
+              Active
+              &lt;input type=&quot;checkbox&quot; [(ngModel)]=&quot;disabled&quot; name=&quot;disabled&quot; #name=&quot;ngModel&quot;&gt;
+              &lt;span class=&quot;lever&quot;&gt;&lt;/span&gt;
+              Disabled
+            &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;col s6&quot; cubx-core-crc&gt;
+          &lt;form&gt;
+            &lt;cubx-date-input cubx-webpackage-id=&quot;com.incowia.basic-html-components@1.0&quot; [label]=&quot;label&quot; [value]=&quot;value&quot; [required]=&quot;required&quot;
+              [disabled]=&quot;disabled&quot; (valueChanged)=&quot;newValue=$event&quot;&gt;&lt;/cubx-date-input&gt;
+            &lt;br /&gt; Value from the bound output slot: {{'{{'}}newValue}}
+            &lt;br /&gt; &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;</code></pre>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
           <div class="collapsible-body">
-            <pre><code class="javascript">
-              import {{ '{' }} Component, OnInit } from '@angular/core';
+            <pre><code class="javascript">import {{ '{' }} Component, OnInit } from '@angular/core';
 
 @Component({{ '{' }}
   selector: 'app-demo3',
   templateUrl: './demo3.component.html'
 })
 export class Demo3Component implements OnInit {{ '{' }}
+  label = "Geburtsdatum";
+  value = "2017-02-01";
+  required = false;
+  disabled = false;
 
-  constructor() {{ '{' }} }
+  constructor() {{ '{' }}
+  }
 
   ngOnInit() {{ '{' }}
     // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
     var event = document.createEvent('CustomEvent');
     event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
-
+    
     // dispatch this 'CubxComponentLinked' event
     document.dispatchEvent(event);
   }
-
 }</code></pre>
           </div>
         </li>
 
         <li>
-          <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Directive</div>
           <div class="collapsible-body">
-            <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+            <pre><code class="javascript">import {{ '{' }} Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
 
-...
-
-
-@NgModule({{ '{' }}
-
-  ...
-  
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  
-  ...
+@Directive({{ '{' }}
+  selector: 'cubx-date-input'
 })
-export class AppModule {{ '{' }} }
+export class DateInputDirective {{ '{' }}
+  private _cifReady: boolean;
+
+  private _value: string;
+  private _label: number;
+  private _disabled: number;
+  private _required: number;
+
+  constructor(private elementRef: ElementRef) {{ '{' }}
+    this._cifReady = false;
+  }
+
+  @Output("valueChanged")
+  valueChangedEvent: EventEmitter&lt;string&gt; = new EventEmitter();
+
+  @HostListener('window:cifReady', ['$event']) onCifReady(event) {{ '{' }}
+    this._cifReady = true;
+    this.updateElement();
+
+    var self = this;
+
+    // send init value
+    self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
+
+    // onchange, send new value
+    this.elementRef.nativeElement.onchange = function () {{ '{' }}
+      self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
+    };
+  }
+
+  updateElement() {{ '{' }}
+    if (this._cifReady) {{ '{' }}
+      this.elementRef.nativeElement.setValue(this._value);
+      this.elementRef.nativeElement.setLabel(this._label);
+      this.elementRef.nativeElement.setDisabled(this._disabled);
+      this.elementRef.nativeElement.setRequired(this._required);
+    }
+  }
+
+  @Input()
+  set value(value: string) {{ '{' }}
+    this._value = value;
+    this.updateElement();
+  }
+
+  @Input()
+  set label(value: number) {{ '{' }}
+    this._label = value;
+    this.updateElement();
+  }
+
+  @Input()
+  set disabled(value: number) {{ '{' }}
+    this._disabled = value;
+    this.updateElement();
+  }
+
+  @Input()
+  set required(value: number) {{ '{' }}
+    this._required = value;
+    this.updateElement();
+  }
+}
 </code></pre>
           </div>
         </li>
