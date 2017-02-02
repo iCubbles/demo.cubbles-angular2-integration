@@ -1,4 +1,4 @@
-#Cubbles meets Angular2 (client side loading)
+#Cubbles meets Angular2 (client side rendering)
 This repository contains some examples how to integrate Cubbles in an Angular2 application.
 
 [Want to get to know the Cubbles Platform?](https://cubbles.github.io/)
