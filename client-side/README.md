@@ -39,6 +39,7 @@ ng generate component demo3
 4. createt the directive for the cubbles component, just copy-paste the content from this repository
 ```
 ng generate directive pie-chart
+ng generate directive date-input
 ```
 
 ...
