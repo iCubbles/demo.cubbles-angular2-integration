@@ -6,10 +6,11 @@
  * client.ts and server.ts
  */
 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './index';
+import { Demo1Component } from './demo1/demo1.component';
 // import { RouterModule } from '@angular/router';
 // import { appRoutes } from './app/app.routing';
 
@@ -18,9 +19,10 @@ import { AppComponent } from './index';
  */
 @NgModule({
   /** Root App Component */
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   /** Our Components */
-  declarations: [ AppComponent ],
+  declarations: [AppComponent, Demo1Component],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     /**
      * NOTE: Needs to be your first import (!)
