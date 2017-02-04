@@ -23,12 +23,52 @@
       <federal-state-elections cubx-webpackage-id="com.incowia.demo.elections@0.1.0-SNAPSHOT"></federal-state-elections>
     </article>
 
-    <article>
-      <ul class="collapsible" data-collapsible="expandable">
-        <li>
-          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: index.html</div>
-          <div class="collapsible-body">
-            <pre><code>
+    <article>      
+      <div class="row">
+          <div class="col s4 center-align"><h4>2004</h4></div>
+          <div class="col s4 center-align"><h4>2009</h4></div>
+          <div class="col s4 center-align"><h4>2014</h4></div>
+      </div>
+
+      <div class="row">
+        <div class="col s4">
+          <pie-chart cubx-webpackage-id="com.incowia.lib.chart-library@0.3.0-SNAPSHOT">
+            <cubx-core-init style="display:none">
+              <cubx-core-slot-init slot="dataColumns">
+                [["CDU", 43.0], ["Die Linke", 26.1], ["SPD", 14.5], ["FDP", 3.6], ["Grüne", 4.5], ["AfD", 0], ["Sonstige", 8.3]]
+              </cubx-core-slot-init>
+            </cubx-core-init>
+          </pie-chart>
+        </div>
+
+        <div class="col s4">
+          <pie-chart cubx-webpackage-id="com.incowia.lib.chart-library@0.3.0-SNAPSHOT">
+            <cubx-core-init style="display:none">
+              <cubx-core-slot-init slot="dataColumns">
+                [["CDU", 31.2], ["Die Linke", 27.4], ["SPD", 18.5], ["FDP", 7.6], ["Grüne", 6.2], ["AfD", 0], ["Sonstige", 9.1]]
+              </cubx-core-slot-init>
+            </cubx-core-init>
+          </pie-chart>
+        </div>
+
+        <div class="col s4">
+          <pie-chart cubx-webpackage-id="com.incowia.lib.chart-library@0.3.0-SNAPSHOT">
+            <cubx-core-init style="display:none">
+              <cubx-core-slot-init slot="dataColumns">
+                [["CDU", 33.5], ["Die Linke", 28.2], ["SPD", 12.4], ["FDP", 2.5], ["Grüne", 5.7], ["AfD", 10.6], ["Sonstige", 7.7]]
+              </cubx-core-slot-init>
+            </cubx-core-init>
+          </pie-chart>
+        </div>
+      </div>
+    </article>
+
+<article>
+  <ul class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: index.html</div>
+      <div class="collapsible-body">
+        <pre><code>
 &lt;head&gt;
     ...
   <!-- Include Cubbles -->
@@ -41,21 +81,21 @@
   
   ...
 &lt;/html&gt;</code></pre>
-          </div>
-        </li>
+      </div>
+    </li>
 
-        <li>
-          <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
-          <div class="collapsible-body">
-            <pre><code>
+    <li>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
+      <div class="collapsible-body">
+        <pre><code>
       &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;</code></pre>
-          </div>
-        </li>
+      </div>
+    </li>
 
-        <li>
-          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
-          <div class="collapsible-body">
-            <pre><code class="javascript">
+    <li>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
+      <div class="collapsible-body">
+        <pre><code class="javascript">
               import {{ '{' }} Component, OnInit } from '@angular/core';
 
 @Component({{ '{' }}
@@ -76,13 +116,13 @@ export class Demo1Component implements OnInit {{ '{' }}
   }
 
 }</code></pre>
-          </div>
-        </li>
+      </div>
+    </li>
 
-        <li>
-          <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
-          <div class="collapsible-body">
-            <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+    <li>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
+      <div class="collapsible-body">
+        <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 ...
 
@@ -97,9 +137,9 @@ export class Demo1Component implements OnInit {{ '{' }}
 })
 export class AppModule {{ '{' }} }
 </code></pre>
-          </div>
-        </li>
-      </ul>
-    </article>
-  </div>
+      </div>
+    </li>
+  </ul>
+</article>
+</div>
 </main>
