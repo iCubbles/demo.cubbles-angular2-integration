@@ -1,46 +1,33 @@
 #Cubbles meets Angular2 (server side rendering)
-This repository contains some examples how to integrate Cubbles in an Angular2 application.
+This repository contains some examples on how to integrate Cubbles into an Angular2 based application.
 
-[Want to get to know the Cubbles Platform?](https://cubbles.github.io/)
+[Want to learn more about the Cubbles Platform?](https://cubbles.github.io/)
 
 ##See examples in action
 
-As the server side rendering needs special servers, github Pages cannt serve this.
+As the server side rendering needs server-side functionality this can't be served directly form Github.
 
-
-##Run locally
 This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to get an Angular2 application is the [angular-cli](https://github.com/angular/). 
 For server side rendering check [Angular Universal](https://universal.angular.io/). There is a fork of the angular-cli repository, especially for creating
 Angular Universal apps, its called [universal-cli](https://www.npmjs.com/package/universal-cli).
 
-You can just clone this repository and run 
-```
-npm install
-```
-
-or just follow this steps and create your own demo:
+### PreRequisits
 
 1. install angular-cli and universal-cli globally
 ```
-npm install -g angular-cli
-npm install -g universal-cli
+$ npm install -g angular-cli
+$ npm install -g universal-cli
 ```
 
-2. generate a new Angular2 application, with everything you need  
+2. Clone this repository and run 
 ```
-ung new cubbles-angular2-integration --universal
-cd cubbles-angular2-integration
-```
-
-3. create three components, universal-cli will also add them to app.node.ts and app.browser.ts
-```
-ung generate component demo1
-```
-...
-
-When you are ready for a visual test just run:
-```
-ung serve
+cd server-side 
+npm install
 ```
 
-and a Node.js server will be running on port 4200.
+### Run it
+```
+$ ung serve
+```
+... and a local node.js server makes the application available on [http://localhost:4200](http://localhost:4200)
+ 
