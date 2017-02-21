@@ -10,7 +10,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './index';
-import { Demo1Component } from './demo1/demo1.component';
 // import { RouterModule } from '@angular/router';
 // import { appRoutes } from './app/app.routing';
 
@@ -21,7 +20,7 @@ import { Demo1Component } from './demo1/demo1.component';
   /** Root App Component */
   bootstrap: [AppComponent],
   /** Our Components */
-  declarations: [AppComponent, Demo1Component],
+  declarations: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     /**

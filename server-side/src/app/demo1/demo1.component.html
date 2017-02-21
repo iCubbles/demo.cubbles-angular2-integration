@@ -3,7 +3,7 @@
     <article>
       <h3>Demo 1</h3>
       <p class="flow-text">This demo shows how to easily integrate Cubbles into an existing Angular 2 Application. The project is build with the
-        angular-cli and Cubbles Runtime Extension 2.1.0 (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
+        angular-cli and uses the Cubbles Runtime Extension (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
           target="_blank">source on github</a>)
       </p>
     </article>
@@ -66,7 +66,7 @@
 <article>
   <ul class="collapsible" data-collapsible="expandable">
     <li>
-      <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: index.html</div>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>index.html: Include the Cubbles RTE</div>
       <div class="collapsible-body">
         <pre><code>
 &lt;head&gt;
@@ -85,7 +85,7 @@
     </li>
 
     <li>
-      <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>Cubbles Component Usage (HTML): Instantiate a Cubbles Component using a Custom Tag</div>
       <div class="collapsible-body">
         <pre><code>
       &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;</code></pre>
@@ -93,7 +93,7 @@
     </li>
 
     <li>
-      <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Component Definition (TypeScript)</div>
       <div class="collapsible-body">
         <pre><code class="javascript">
               import {{ '{' }} Component, OnInit } from '@angular/core';
@@ -102,25 +102,14 @@
   selector: 'app-demo1',
   templateUrl: './demo1.component.html'
 })
-export class Demo1Component implements OnInit {{ '{' }}
-
+export class Demo1Component {{ '{' }}
   constructor() {{ '{' }} }
-
-  ngOnInit() {{ '{' }}
-    // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-    var event = document.createEvent('CustomEvent');
-    event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
-
-    // dispatch this 'CubxComponentLinked' event
-    document.dispatchEvent(event);
-  }
-
 }</code></pre>
       </div>
     </li>
 
     <li>
-      <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
+      <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module (TypeScript)</div>
       <div class="collapsible-body">
         <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
