@@ -10,7 +10,7 @@ export class Demo1Component implements OnInit {
 
   ngOnInit() {
     // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-    var event = document.createEvent('CustomEvent');
+    const event = document.createEvent('CustomEvent');
     event.initCustomEvent('CubxComponentLinked', true, true, {});
 
     // dispatch this 'CubxComponentLinked' event

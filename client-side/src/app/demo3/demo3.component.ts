@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './demo3.component.html'
 })
 export class Demo3Component implements OnInit {
-  label = "Geburtsdatum";
-  value = "2017-02-01";
+  label = 'Geburtsdatum';
+  value = '2017-02-01';
   required = false;
   disabled = false;
 
@@ -15,9 +15,9 @@ export class Demo3Component implements OnInit {
 
   ngOnInit() {
     // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-    var event = document.createEvent('CustomEvent');
+    const event = document.createEvent('CustomEvent');
     event.initCustomEvent('CubxComponentLinked', true, true, {});
-    
+
     // dispatch this 'CubxComponentLinked' event
     document.dispatchEvent(event);
   }

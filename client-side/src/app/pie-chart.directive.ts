@@ -22,9 +22,9 @@ export class PieChartDirective {
   updateElement() {
     if (this._cifReady) {
       this.elementRef.nativeElement.setDataColumns([
-        ["dataSet1", this._dataSet1],
-        ["dataSet2", this._dataSet2],
-        ["dataSet3", this._dataSet3]
+        ['dataSet1', this._dataSet1],
+        ['dataSet2', this._dataSet2],
+        ['dataSet3', this._dataSet3]
       ]);
     }
   }

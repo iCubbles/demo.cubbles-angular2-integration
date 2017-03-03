@@ -11,18 +11,19 @@ export class DateInputDirective {
   private _disabled: number;
   private _required: number;
 
+  @Output('valueChanged')
+  valueChangedEvent: EventEmitter<string> = new EventEmitter();
+
   constructor(private elementRef: ElementRef) {
     this._cifReady = false;
   }
 
-  @Output("valueChanged")
-  valueChangedEvent: EventEmitter<string> = new EventEmitter();
 
   @HostListener('window:cifReady', ['$event']) onCifReady(event) {
     this._cifReady = true;
     this.updateElement();
 
-    var self = this;
+    const self = this;
 
     // send init value
     self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
