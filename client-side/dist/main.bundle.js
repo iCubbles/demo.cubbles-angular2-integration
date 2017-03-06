@@ -172,7 +172,7 @@ var appRoutes = [
     { path: 'demo3', component: __WEBPACK_IMPORTED_MODULE_9__demo3_demo3_component__["a" /* Demo3Component */] },
     {
         path: '',
-        redirectTo: '/demo2',
+        redirectTo: '/demo1',
         pathMatch: 'full'
     }
 ];

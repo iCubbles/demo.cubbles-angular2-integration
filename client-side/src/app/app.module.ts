@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: 'demo3', component: Demo3Component },
   {
     path: '',
-    redirectTo: '/demo2',
+    redirectTo: '/demo1',
     pathMatch: 'full'
   }
 ];
