@@ -146,8 +146,7 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getBaseUrl;
 function getBaseUrl() {
-    var baseUrl = window.document.location.href.substring(0, window.document.location.href.indexOf('/demo') + 1);
-    console.log('baseUrl', baseUrl);
+    var baseUrl = window.document.location.href.replace(/demo\d/, '');
     return baseUrl;
 }
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side-dynamical-cubbles-instance/src/baseurl.util.js.map
