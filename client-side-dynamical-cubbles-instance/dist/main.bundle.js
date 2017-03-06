@@ -146,7 +146,7 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getBaseUrl;
 function getBaseUrl() {
-    var baseUrl = window.document.location.href.replace(/demo\d/, '');
+    var baseUrl = window.location.pathname.replace(/demo\d/, '');
     return baseUrl;
 }
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side-dynamical-cubbles-instance/src/baseurl.util.js.map
@@ -294,7 +294,7 @@ module.exports = module.exports.toString();
 /***/ 662:
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"\">\n  <nav class=\"blue darken-2\">\n    <div class=\"container\">\n      <div class=\"nav-wrapper\">\n        <a href=\"#\" class=\"brand-logo\">Cubbles meets Angular 2</a>\n      </div>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a href=\"/demo1\">Demo 1</a></li>\n        <li><a href=\"https://github.com/iCubbles/demo.cubbles-angular2-integration\" target=\"_blank\">Github</a></li>\n      </ul>\n    </div>\n  </nav>\n</header>\n\n<router-outlet></router-outlet>\n\n<footer class=\"page-footer  blue darken-2\">\n  <div class=\"container center\">\n    <p class=\"grey-text text-lighten-4\">Get in touch with Cubbles: Visit us on <a class=\"grey-text text-lighten-2\" href=\"https://cubbles.github.io\" target=\"_blank\">github</a>.</p>\n  </div>\n  <div class=\"footer-copyright\">\n    <div class=\"container\">\n      &copy; 2017 incowia GmbH\n      <a class=\"grey-text text-lighten-2 right\" href=\"https://cubbles.github.io\" target=\"_blank\">Cubbles Platform</a>\n    </div>\n  </div>\n</footer>\n"
+module.exports = "<header class=\"\">\n  <nav class=\"blue darken-2\">\n    <div class=\"container\">\n      <div class=\"nav-wrapper\">\n        <a href=\"#\" class=\"brand-logo\">Cubbles meets Angular 2</a>\n      </div>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a routerLink=\"/demo1\">Demo 1</a></li>\n        <li><a href=\"https://github.com/iCubbles/demo.cubbles-angular2-integration\" target=\"_blank\">Github</a></li>\n      </ul>\n    </div>\n  </nav>\n</header>\n\n<router-outlet></router-outlet>\n\n<footer class=\"page-footer  blue darken-2\">\n  <div class=\"container center\">\n    <p class=\"grey-text text-lighten-4\">Get in touch with Cubbles: Visit us on <a class=\"grey-text text-lighten-2\" href=\"https://cubbles.github.io\" target=\"_blank\">github</a>.</p>\n  </div>\n  <div class=\"footer-copyright\">\n    <div class=\"container\">\n      &copy; 2017 incowia GmbH\n      <a class=\"grey-text text-lighten-2 right\" href=\"https://cubbles.github.io\" target=\"_blank\">Cubbles Platform</a>\n    </div>\n  </div>\n</footer>\n"
 
 /***/ }),
 

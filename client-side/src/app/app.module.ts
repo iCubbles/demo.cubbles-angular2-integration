@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { APP_BASE_HREF, Location } from '@angular/common';
+import {APP_BASE_HREF} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: 'demo3', component: Demo3Component },
   {
     path: '',
-    redirectTo: '/demo1',
+    redirectTo: '/demo2',
     pathMatch: 'full'
   }
 ];
