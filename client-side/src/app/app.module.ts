@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { APP_BASE_HREF, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,6 +12,8 @@ import { Demo3Component } from './demo3/demo3.component';
 
 import { PieChartDirective } from './pie-chart.directive';
 import { DateInputDirective } from './date-input.directive';
+
+import { getBaseUrl } from './baseurl.util';
 
 const appRoutes: Routes = [
   { path: 'demo1', component: Demo1Component },
@@ -40,7 +43,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    {
+      provide: APP_BASE_HREF,
+      useFactory:  getBaseUrl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

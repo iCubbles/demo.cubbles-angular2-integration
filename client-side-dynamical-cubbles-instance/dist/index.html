@@ -1,11 +1,33 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Cubbles meets Angular 2</title>
-
   <!--<script>document.write('<base href="' + document.location + '" />');</script>-->
+
+  <script>
+    window.cubx = {
+      "CRCInit": {
+        "rootDependencies": [
+          {
+            "artifactId": "cubxpolymer",
+            "webpackageId": "cubx.core.rte@2.2.2"
+          },
+            {
+              "artifactId" : "federal-state-elections",
+              "webpackageId": "com.incowia.demo.elections@0.1.0-SNAPSHOT"
+            }
+
+         ],
+        rootDependencyExcludes: [
+          {
+            "artifactId": "cubxpolymer",
+            "webpackageId": "cubx.core.rte@2.0.1"
+          }
+        ]
+      }
+    }
+  </script>
 
   <!-- Include Cubbles -->
   <script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/webcomponents-lite/webcomponents-lite.js"></script>
@@ -24,9 +46,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
-
 <body>
   <app-root>Loading...</app-root>
 <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
-
 </html>
