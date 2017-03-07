@@ -72,7 +72,7 @@
 
         <div class="col s6" cubx-core-crc>
           <form>
-            <cubx-date-input cubx-webpackage-id="com.incowia.basic-html-components@1.0" [label]="label" [value]="value" [required]="required"
+            <cubx-date-input [label]="label" [value]="value" [required]="required"
               [disabled]="disabled" (valueChanged)="newValue=$event"></cubx-date-input>
             <br /> Value from the bound output slot: {{newValue}}
             <br /> <button class="btn" type="submit">Submit</button>
