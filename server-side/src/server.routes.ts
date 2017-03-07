@@ -10,5 +10,7 @@
  * ];
  **/
 export const routes: string[] = [
-
+    // 'demo1',
+    // 'demo2',
+    // 'demo3'
 ];
