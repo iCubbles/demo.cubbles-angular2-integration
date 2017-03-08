@@ -15,11 +15,12 @@ var Demo2Component = (function () {
         this.value3 = 30;
     }
     Demo2Component.prototype.ngOnInit = function () {
-        // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-        var event = document.createEvent('CustomEvent');
-        event.initCustomEvent('CubxComponentLinked', true, true, {});
-        // dispatch this 'CubxComponentLinked' event
-        document.dispatchEvent(event);
+        // // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
+        // const event = document.createEvent('CustomEvent');
+        // event.initCustomEvent('CubxComponentLinked', true, true, {});
+        //
+        // // dispatch this 'CubxComponentLinked' event
+        // document.dispatchEvent(event);
     };
     return Demo2Component;
 }());

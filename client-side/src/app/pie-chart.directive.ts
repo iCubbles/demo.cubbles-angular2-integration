@@ -14,7 +14,9 @@ export class PieChartDirective {
     this._cifReady = false;
   }
 
-  @HostListener('window:cifReady', ['$event']) onCifReady(event) {
+  @HostListener('window:cifDomUpdateReady', ['$event'])
+  @HostListener('window:cifReady', ['$event'])
+  onCifReady(event) {
     this._cifReady = true;
     this.updateElement();
   }

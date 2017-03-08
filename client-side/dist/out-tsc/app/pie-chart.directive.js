@@ -53,6 +53,7 @@ var PieChartDirective = (function () {
     return PieChartDirective;
 }());
 __decorate([
+    HostListener('window:cifDomUpdateReady', ['$event']),
     HostListener('window:cifReady', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

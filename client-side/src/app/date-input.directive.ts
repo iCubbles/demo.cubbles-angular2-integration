@@ -19,7 +19,9 @@ export class DateInputDirective {
   }
 
 
-  @HostListener('window:cifReady', ['$event']) onCifReady(event) {
+  @HostListener('window:cifDomUpdateReady', ['$event'])
+  @HostListener('window:cifReady', ['$event'])
+  onCifReady(event) {
     this._cifReady = true;
     this.updateElement();
 
@@ -29,9 +31,14 @@ export class DateInputDirective {
     self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
 
     // onchange, send new value
-    this.elementRef.nativeElement.onchange = function () {
-      self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-    };
+    // this.elementRef.nativeElement.onchange = function () {
+    //   self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
+    // };
+    this.elementRef.nativeElement.addEventListener('cifModelChange', function(evt){
+      if (evt.detail.slot === 'value') {
+        self.valueChangedEvent.emit(evt.detail.payload);
+      }
+    });
   }
 
   updateElement() {

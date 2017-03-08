@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngAfterViewInit = function () {
+        var event = document.createEvent('CustomEvent');
+        event.initCustomEvent('CubxComponentLinked', true, true, {});
+        // dispatch this 'CubxComponentLinked' event
+        document.dispatchEvent(event);
+    };
+    ;
     return AppComponent;
 }());
 AppComponent = __decorate([

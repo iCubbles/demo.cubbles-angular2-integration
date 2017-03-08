@@ -3,7 +3,7 @@
     <article>
       <h3>Demo 2</h3>
       <p class="flow-text">This demo shows how to easily integrate Cubbles into an existing Angular 2 Application. The project is build with the
-        angular-cli and Cubbles Runtime Extension 2.2.2 (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
+        angular-cli and Cubbles Runtime Extension 2.3.0-SNAPSHOT (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
           target="_blank">source on github</a>)
       </p>
     </article>
@@ -41,7 +41,7 @@
     <div class="divider"></div>
 
     <article>
-      <div class="row">
+        <div class="row">
         <div class="col s6 input-form">
           <p>Change the values of the <code>&lt;pie-chart&gt;</code> component input slot "dataset1", "dataset2" and "dataset3".</p>
           <form>
@@ -59,7 +59,7 @@
           </form>
         </div>
 
-        <div class="col s6" cubx-core-crc>
+        <div class="col s6">
           <pie-chart [dataSet1]="value1" [dataSet2]="value2" [dataSet3]="value3"></pie-chart>
         </div>
       </div>
@@ -74,13 +74,13 @@
 &lt;head&gt;
     ...
   <!-- Include Cubbles -->
-  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
-  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.3.0-SNAPSHOT/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.3.0-SNAPSHOT/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
     ...
 &lt;/head&gt;
 
 &lt;html&gt;
-  
+
   ...
 
 &lt;/html&gt;</code></pre>
@@ -134,12 +134,12 @@ export class Demo2Component implements OnInit {{ '{' }}
     // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
     var event = document.createEvent('CustomEvent');
     event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
- 
+
     // dispatch this 'CubxComponentLinked' event
     document.dispatchEvent(event);
   }
 }
-              
+
               </code></pre>
           </div>
         </li>

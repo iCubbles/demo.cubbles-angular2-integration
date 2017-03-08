@@ -12,11 +12,12 @@ var Demo1Component = (function () {
     function Demo1Component() {
     }
     Demo1Component.prototype.ngOnInit = function () {
-        // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-        var event = document.createEvent('CustomEvent');
-        event.initCustomEvent('CubxComponentLinked', true, true, {});
-        // dispatch this 'CubxComponentLinked' event
-        document.dispatchEvent(event);
+        // // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
+        // const event = document.createEvent('CustomEvent');
+        // event.initCustomEvent('CubxComponentLinked', true, true, {});
+        //
+        // // dispatch this 'CubxComponentLinked' event
+        // document.dispatchEvent(event);
     };
     return Demo1Component;
 }());

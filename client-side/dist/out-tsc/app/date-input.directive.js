@@ -21,9 +21,14 @@ var DateInputDirective = (function () {
         // send init value
         self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
         // onchange, send new value
-        this.elementRef.nativeElement.onchange = function () {
-            self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-        };
+        // this.elementRef.nativeElement.onchange = function () {
+        //   self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
+        // };
+        this.elementRef.nativeElement.addEventListener('cifModelChange', function (evt) {
+            if (evt.detail.slot === 'value') {
+                self.valueChangedEvent.emit(evt.detail.payload);
+            }
+        });
     };
     DateInputDirective.prototype.updateElement = function () {
         if (this._cifReady) {
@@ -72,6 +77,7 @@ __decorate([
     __metadata("design:type", EventEmitter)
 ], DateInputDirective.prototype, "valueChangedEvent", void 0);
 __decorate([
+    HostListener('window:cifDomUpdateReady', ['$event']),
     HostListener('window:cifReady', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
