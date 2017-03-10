@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-var PieChartDirective = (function () {
+export var PieChartDirective = (function () {
     function PieChartDirective(elementRef) {
         this.elementRef = elementRef;
         this._cifReady = false;
@@ -50,35 +50,34 @@ var PieChartDirective = (function () {
         enumerable: true,
         configurable: true
     });
+    __decorate([
+        HostListener('window:cifDomUpdateReady', ['$event']),
+        HostListener('window:cifReady', ['$event']), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', [Object]), 
+        __metadata('design:returntype', void 0)
+    ], PieChartDirective.prototype, "onCifReady", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], PieChartDirective.prototype, "dataSet1", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], PieChartDirective.prototype, "dataSet2", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], PieChartDirective.prototype, "dataSet3", null);
+    PieChartDirective = __decorate([
+        Directive({
+            selector: 'pie-chart'
+        }), 
+        __metadata('design:paramtypes', [ElementRef])
+    ], PieChartDirective);
     return PieChartDirective;
 }());
-__decorate([
-    HostListener('window:cifDomUpdateReady', ['$event']),
-    HostListener('window:cifReady', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], PieChartDirective.prototype, "onCifReady", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], PieChartDirective.prototype, "dataSet1", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], PieChartDirective.prototype, "dataSet2", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], PieChartDirective.prototype, "dataSet3", null);
-PieChartDirective = __decorate([
-    Directive({
-        selector: 'pie-chart'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], PieChartDirective);
-export { PieChartDirective };
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side/src/app/pie-chart.directive.js.map

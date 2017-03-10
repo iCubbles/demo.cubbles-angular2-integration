@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-var Demo1Component = (function () {
+export var Demo1Component = (function () {
     function Demo1Component() {
         this.buttonTexts = ['add cubble "federal-state-elections"', 'remove cubble "federal-state-elections"'];
         this.toggleButtonText = this.buttonTexts[0];
@@ -64,15 +64,14 @@ var Demo1Component = (function () {
         console.log('buttonState', !this.ready);
         return !this.ready;
     };
+    Demo1Component = __decorate([
+        Component({
+            selector: 'app-demo1',
+            templateUrl: './demo1.component.html',
+            styleUrls: ['./demo1.component.css']
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Demo1Component);
     return Demo1Component;
 }());
-Demo1Component = __decorate([
-    Component({
-        selector: 'app-demo1',
-        templateUrl: './demo1.component.html',
-        styleUrls: ['./demo1.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], Demo1Component);
-export { Demo1Component };
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side-dynamical-cubbles-instance/src/app/demo1/demo1.component.js.map

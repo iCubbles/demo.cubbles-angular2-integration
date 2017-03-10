@@ -30,10 +30,7 @@ export class DateInputDirective {
     // send init value
     self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
 
-    // onchange, send new value
-    // this.elementRef.nativeElement.onchange = function () {
-    //   self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-    // };
+    // after cubbles propagate data, send new value
     this.elementRef.nativeElement.addEventListener('cifModelChange', function(evt){
       if (evt.detail.slot === 'value') {
         self.valueChangedEvent.emit(evt.detail.payload);

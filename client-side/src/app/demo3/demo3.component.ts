@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+declare var jQuery: any;
+declare var hljs: any;
 
 @Component({
   selector: 'app-demo3',
   templateUrl: './demo3.component.html'
 })
-export class Demo3Component implements OnInit {
+export class Demo3Component implements AfterViewInit {
   label = 'Geburtsdatum';
   value = '2017-02-01';
   required = false;
@@ -13,12 +15,10 @@ export class Demo3Component implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-    // // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-    // const event = document.createEvent('CustomEvent');
-    // event.initCustomEvent('CubxComponentLinked', true, true, {});
-    //
-    // // dispatch this 'CubxComponentLinked' event
-    // document.dispatchEvent(event);
+  ngAfterViewInit() {
+    jQuery('.collapsible').collapsible();
+    jQuery('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
   }
 }

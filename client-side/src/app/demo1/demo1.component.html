@@ -30,10 +30,32 @@
           <div class="collapsible-body">
             <pre><code>
 &lt;head&gt;
+
+  &lt;script&gt;
+    // Include dependencies
+    window.cubx = {{ '{' }}
+      "CRCInit": {{ '{' }}
+        "rootDependencies": [
+          {{ '{' }}
+            "artifactId" : "federal-state-elections",
+            "webpackageId": "com.incowia.demo.elections@0.1.0-SNAPSHOT"
+          },
+          {{ '{' }}
+            "artifactId": "pie-chart",
+            "webpackageId": "com.incowia.lib.chart-library@0.3.0-SNAPSHOT"
+          },
+          {{ '{' }}
+            "artifactId": "cubx-date-input",
+            "webpackageId": "com.incowia.basic-html-components@1.0"
+          }
+        ]
+      }
+    }
+  &lt;/script&gt;
     ...
-  <!-- Include Cubbles -->
+  &lt;!-- Include Cubbles / define startevent--&gt;
   &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.3.0-SNAPSHOT/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
-  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.3.0-SNAPSHOT/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.3.0-SNAPSHOT/crc-loader/js/main.js" data-crcinit-loadcif="true" data-cubx-startevent="CubxComponentLinked">&lt;/script&gt;
     ...
 &lt;/head&gt;
 
@@ -45,10 +67,43 @@
         </li>
 
         <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript App Component</div>
+          <div class="collapsible-body">
+              <pre><code class="javascript">
+// app.component.ts
+import {{ '{' }} Component, AfterViewInit } from '@angular/core';
+
+@Component({{ '{' }}
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent implements  AfterViewInit {{ '{' }}
+  ngAfterViewInit() {{ '{' }}
+    const event = document.createEvent('CustomEvent');
+    event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
+
+    // dispatch this 'CubxComponentLinked' event
+    document.dispatchEvent(event);
+  };
+}
+              </code></pre>
+          </div>
+        </li>
+
+        <li>
           <div class="collapsible-header"><i class="medium material-icons">code</i>HTML: Component</div>
           <div class="collapsible-body">
             <pre><code>
-      &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;</code></pre>
+// demo1.component.html
+
+...
+
+    &lt;federal-state-elections cubx-webpackage-id=&quot;com.incowia.demo.elections@0.1.0-SNAPSHOT&quot;&gt;&lt;/federal-state-elections&gt;
+
+...
+
+            </code></pre>
+
           </div>
         </li>
 
@@ -56,24 +111,17 @@
           <div class="collapsible-header"><i class="medium material-icons">code</i>TypeScript Component</div>
           <div class="collapsible-body">
             <pre><code class="javascript">
-              import {{ '{' }} Component, OnInit } from '@angular/core';
+// demo1.component.ts
+
+import {{ '{' }} Component } from '@angular/core';
 
 @Component({{ '{' }}
   selector: 'app-demo1',
   templateUrl: './demo1.component.html'
 })
-export class Demo1Component implements OnInit {{ '{' }}
+export class Demo1Component {{ '{' }}
 
   constructor() {{ '{' }} }
-
-  ngOnInit() {{ '{' }}
-    // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-    var event = document.createEvent('CustomEvent');
-    event.initCustomEvent('CubxComponentLinked', true, true, {{ '{' }}});
-
-    // dispatch this 'CubxComponentLinked' event
-    document.dispatchEvent(event);
-  }
 
 }</code></pre>
           </div>

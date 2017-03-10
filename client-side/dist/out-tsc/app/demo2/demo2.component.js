@@ -8,28 +8,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-var Demo2Component = (function () {
+export var Demo2Component = (function () {
     function Demo2Component() {
         this.value1 = 10;
         this.value2 = 20;
         this.value3 = 30;
     }
-    Demo2Component.prototype.ngOnInit = function () {
-        // // build custom event for starting bootstrap of CIF (here, use the deprecated way that also works in IE)
-        // const event = document.createEvent('CustomEvent');
-        // event.initCustomEvent('CubxComponentLinked', true, true, {});
-        //
-        // // dispatch this 'CubxComponentLinked' event
-        // document.dispatchEvent(event);
+    Demo2Component.prototype.ngAfterViewInit = function () {
+        jQuery('.collapsible').collapsible();
+        jQuery('pre code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
     };
+    Demo2Component = __decorate([
+        Component({
+            selector: 'app-demo2',
+            templateUrl: './demo2.component.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Demo2Component);
     return Demo2Component;
 }());
-Demo2Component = __decorate([
-    Component({
-        selector: 'app-demo2',
-        templateUrl: './demo2.component.html'
-    }),
-    __metadata("design:paramtypes", [])
-], Demo2Component);
-export { Demo2Component };
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side/src/app/demo2/demo2.component.js.map

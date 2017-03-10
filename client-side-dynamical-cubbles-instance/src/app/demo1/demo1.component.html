@@ -32,11 +32,24 @@
           <div class="collapsible-body">
         <pre><code>
 &lt;head&gt;
-    ...
-          <!-- Include Cubbles -->
+  &lt;script&gt;
+    // add dependencies
+    window.cubx = {{ '{'}}
+      "CRCInit": {{ '{'}}
+        "rootDependencies": [
+          {{ '{'}}
+            "artifactId" : "federal-state-elections",
+            "webpackageId": "com.incowia.demo.elections@0.1.0-SNAPSHOT"
+          }
+        ]
+      }
+    }
+  &lt;/script&gt;
+  ...
+  &lt;!-- Include Cubbles --&gt;
   &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/webcomponents-lite/webcomponents-lite.js"&gt;&lt;/script&gt;
-  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/crc-loader/js/main.js" data-crcinit-loadcif="true">&lt;/script&gt;
-    ...
+  &lt;script src="https://cubbles.world/sandbox/cubx.core.rte@2.2.2/crc-loader/js/main.js" data-crcinit-loadcif="true" data-cubx-startevent="CubxComponentLinked">&lt;/script&gt;
+  ...
 &lt;/head&gt;
 
 &lt;html&gt;
@@ -50,7 +63,14 @@
           <div class="collapsible-header"><i class="medium material-icons">code</i>demo1.component.html: Instantiate a Cubbles Component using a Custom Tag</div>
           <div class="collapsible-body">
         <pre><code>
-      &lt;button class="waves-effect waves-light btn" (click)="handleButtonClick()" [disabled]="buttonState()" &gt;{{ '{' }}{{ '{' }}toggleButtonText}}&lt;/button&gt;</code></pre>
+
+      ...
+
+      &lt;button class="waves-effect waves-light btn" (click)="handleButtonClick()" [disabled]="buttonState()" &gt;{{ '{' }}{{ '{' }}toggleButtonText}}&lt;/button&gt;
+
+      ...
+
+        </code></pre>
           </div>
         </li>
 
@@ -67,8 +87,9 @@ import {{ '{' }}Component, OnInit} from '@angular/core';
 })
 
 
-export class Demo1Component implements OnInit {{ '{' }}
-ready: boolean;
+export class Demo1Component {{ '{' }}
+  ready: boolean;
+
   buttonTexts: string[] = ['add cubble "federal-state-elections"', 'remove cubble "federal-state-elections"'];
 
   toggleButtonText: string = this.buttonTexts[0];

@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
-var DateInputDirective = (function () {
+export var DateInputDirective = (function () {
     function DateInputDirective(elementRef) {
         this.elementRef = elementRef;
         this.valueChangedEvent = new EventEmitter();
@@ -20,10 +20,7 @@ var DateInputDirective = (function () {
         var self = this;
         // send init value
         self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-        // onchange, send new value
-        // this.elementRef.nativeElement.onchange = function () {
-        //   self.valueChangedEvent.emit(self.elementRef.nativeElement.getValue());
-        // };
+        // after cubbles propagate data, send new value
         this.elementRef.nativeElement.addEventListener('cifModelChange', function (evt) {
             if (evt.detail.slot === 'value') {
                 self.valueChangedEvent.emit(evt.detail.payload);
@@ -70,44 +67,43 @@ var DateInputDirective = (function () {
         enumerable: true,
         configurable: true
     });
+    __decorate([
+        Output('valueChanged'), 
+        __metadata('design:type', EventEmitter)
+    ], DateInputDirective.prototype, "valueChangedEvent", void 0);
+    __decorate([
+        HostListener('window:cifDomUpdateReady', ['$event']),
+        HostListener('window:cifReady', ['$event']), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', [Object]), 
+        __metadata('design:returntype', void 0)
+    ], DateInputDirective.prototype, "onCifReady", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', String), 
+        __metadata('design:paramtypes', [String])
+    ], DateInputDirective.prototype, "value", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], DateInputDirective.prototype, "label", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], DateInputDirective.prototype, "disabled", null);
+    __decorate([
+        Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], DateInputDirective.prototype, "required", null);
+    DateInputDirective = __decorate([
+        Directive({
+            selector: 'cubx-date-input'
+        }), 
+        __metadata('design:paramtypes', [ElementRef])
+    ], DateInputDirective);
     return DateInputDirective;
 }());
-__decorate([
-    Output('valueChanged'),
-    __metadata("design:type", EventEmitter)
-], DateInputDirective.prototype, "valueChangedEvent", void 0);
-__decorate([
-    HostListener('window:cifDomUpdateReady', ['$event']),
-    HostListener('window:cifReady', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], DateInputDirective.prototype, "onCifReady", null);
-__decorate([
-    Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], DateInputDirective.prototype, "value", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], DateInputDirective.prototype, "label", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], DateInputDirective.prototype, "disabled", null);
-__decorate([
-    Input(),
-    __metadata("design:type", Number),
-    __metadata("design:paramtypes", [Number])
-], DateInputDirective.prototype, "required", null);
-DateInputDirective = __decorate([
-    Directive({
-        selector: 'cubx-date-input'
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], DateInputDirective);
-export { DateInputDirective };
 //# sourceMappingURL=D:/Projekte/Cubbles/github/icubbles/demo.cubbles-angular2-integration/client-side/src/app/date-input.directive.js.map
