@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 export var Demo1Component = (function () {
     function Demo1Component() {
-        this.buttonTexts = ['add cubble "federal-state-elections"', 'remove cubble "federal-state-elections"'];
+        this.buttonTexts = ['add cubble "world-places"', 'remove cubble "world-places"'];
         this.toggleButtonText = this.buttonTexts[0];
         this.ready = false;
         this.toggleIndex = 0;
@@ -53,11 +53,11 @@ export var Demo1Component = (function () {
     ;
     Demo1Component.prototype.addCubble = function () {
         var container = document.querySelector('#cubbleContainer');
-        var el = document.createElement('federal-state-elections');
+        var el = document.createElement('world-places');
         container.appendChild(el);
     };
     Demo1Component.prototype.removeCubble = function () {
-        var cubble = document.querySelector('federal-state-elections');
+        var cubble = document.querySelector('world-places');
         cubble.parentNode.removeChild(cubble);
     };
     Demo1Component.prototype.buttonState = function () {

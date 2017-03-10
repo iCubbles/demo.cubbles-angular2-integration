@@ -9,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 
 export class Demo1Component implements OnInit {
   ready: boolean;
-  buttonTexts: string[] = ['add cubble "federal-state-elections"', 'remove cubble "federal-state-elections"'];
+  buttonTexts: string[] = ['add cubble "world-places"', 'remove cubble "world-places"'];
 
   toggleButtonText: string = this.buttonTexts[0];
 
@@ -62,12 +62,12 @@ export class Demo1Component implements OnInit {
 
   addCubble(): void {
     const container = document.querySelector('#cubbleContainer');
-    const el = document.createElement('federal-state-elections');
+    const el = document.createElement('world-places');
     container.appendChild(el);
   }
 
   removeCubble(): void {
-    const cubble = document.querySelector('federal-state-elections');
+    const cubble = document.querySelector('world-places');
     cubble.parentNode.removeChild(cubble);
   }
 

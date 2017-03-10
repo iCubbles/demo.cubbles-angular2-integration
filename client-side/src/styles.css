@@ -2,3 +2,15 @@
 .switch {
     margin-top: 20px;
 }
+
+world-places {
+    display: block;
+}
+
+world-places h1 {
+    font-size: 1.5em!important;
+}
+
+world-places .container {
+    width: 100%!important;
+}

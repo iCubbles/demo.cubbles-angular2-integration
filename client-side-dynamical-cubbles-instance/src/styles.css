@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+world-places {
+  display: block;
+}
+
+world-places h1 {
+  font-size: 1.5em!important;
+}
+
+world-places .container {
+  width: 100%!important;
+}

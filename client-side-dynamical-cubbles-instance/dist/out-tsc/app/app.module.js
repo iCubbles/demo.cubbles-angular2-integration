@@ -9,11 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { getBaseUrl } from './baseurl.util';
 import { AppComponent } from './app.component';
 import { Demo1Component } from './demo1/demo1.component';
 var appRoutes = [
@@ -37,15 +35,10 @@ export var AppModule = (function () {
                 BrowserModule,
                 FormsModule,
                 HttpModule,
-                RouterModule.forRoot(appRoutes)
+                RouterModule.forRoot(appRoutes, { useHash: true })
             ],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            providers: [
-                {
-                    provide: APP_BASE_HREF,
-                    useFactory: getBaseUrl
-                }
-            ],
+            providers: [],
             bootstrap: [AppComponent]
         }), 
         __metadata('design:paramtypes', [])

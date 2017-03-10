@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__(663)();
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.switch {\n    margin-top: 20px;\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.switch {\n    margin-top: 20px;\n}\n\nworld-places {\n    display: block;\n}\n\nworld-places h1 {\n    font-size: 1.5em!important;\n}\n\nworld-places .container {\n    width: 100%!important;\n}", ""]);
 
 // exports
 
