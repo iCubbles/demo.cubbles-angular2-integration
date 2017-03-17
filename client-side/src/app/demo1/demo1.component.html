@@ -14,13 +14,18 @@
       <p>
         The simplest way to add a cubbles component is to add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>@NgModule</code>,
         allowing custom HTML Element.
+        The source of the used components must be declareted in the CRCInit Object.
       </p>
     </article>
 
     <div class="divider"></div>
 
     <article>
-      <world-places></world-places>
+      <world-places>
+          <cubx-core-init>
+              <cubx-core-slot-init slot="googleMapsApiKey">"AIzaSyCqhid9d8R7XjuQBgiYP3a_omY92-gPmJc"</cubx-core-slot-init>
+          </cubx-core-init>
+      </world-places>
     </article>
 
     <article>
