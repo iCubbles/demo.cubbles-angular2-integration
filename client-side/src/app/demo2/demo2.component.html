@@ -241,6 +241,27 @@ export class PieChartDirective {{ '{' }}
 }</code></pre>
           </div>
         </li>
+        
+        <li>
+          <div class="collapsible-header"><i class="medium material-icons">code</i>Angular Module</div>
+          <div class="collapsible-body">
+            <pre><code class="javascript">import {{ '{' }} NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+...
+
+
+@NgModule({{ '{' }}
+
+  ...
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
+  ...
+})
+export class AppModule {{ '{' }} }
+</code></pre>
+          </div>
+        </li>
       </ul>
     </article>
   </div>

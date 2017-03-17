@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 declare var jQuery: any;
 declare var hljs: any;
 
@@ -6,9 +6,14 @@ declare var hljs: any;
   selector: 'app-demo4',
   templateUrl: './demo4.component.html'
 })
-export class Demo4Component implements  AfterViewInit {
+export class Demo4Component implements AfterViewInit {
+  label = 'Geburtsdatum';
+  value = '2017-02-01';
+  required = false;
+  disabled = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngAfterViewInit() {
     jQuery('.collapsible').collapsible();
@@ -16,5 +21,4 @@ export class Demo4Component implements  AfterViewInit {
       hljs.highlightBlock(block);
     });
   }
-
 }

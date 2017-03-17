@@ -21,11 +21,19 @@
     <div class="divider"></div>
 
     <article>
-      <world-places>
-          <cubx-core-init>
-              <cubx-core-slot-init slot="googleMapsApiKey">"AIzaSyCqhid9d8R7XjuQBgiYP3a_omY92-gPmJc"</cubx-core-slot-init>
+      <bar-chart>
+          <cubx-core-init style="display: none">
+              <cubx-core-slot-init slot="dataColumns">
+                  [["dataSet1", 10, 20, 50, 100, 40, 20, 70],
+                  ["dataSet2", 100, 40, 10, 75, 50, 50, 90],
+                  ["dataSet3", 15, 30, 50, 40, 15, 120, 80]]
+              </cubx-core-slot-init>
+              <cubx-core-slot-init slot="xLabels">
+                  ["2011","2012","2013","2014","2015","2016","2017"]
+              </cubx-core-slot-init>
           </cubx-core-init>
-      </world-places>
+      </bar-chart>
+
     </article>
 
     <article>
@@ -102,8 +110,20 @@ export class AppComponent implements  AfterViewInit {{ '{' }}
 // demo1.component.html
 
 ...
-
-    &lt;world-places&gt;&lt;/world-places&gt;
+    &lt;-- Cubbles component bar-chart --&gt;
+    &lt;bar-chart&gt;
+          &lt;-- initialize the component slots "dataColumns" and "xLabels" --&gt;
+          &lt;cubx-core-init style="display: none"&gt;
+              &lt;cubx-core-slot-init slot="dataColumns"&gt;
+                  [["dataSet1", 10, 20, 50, 100, 40, 20, 70],
+                  ["dataSet2", 100, 40, 10, 75, 50, 50, 90],
+                  ["dataSet3", 15, 30, 50, 40, 15, 120, 80]]
+              &lt;/cubx-core-slot-init&gt;
+              &lt;cubx-core-slot-init slot="xLabels"&gt;
+                  ["2011","2012","2013","2014","2015","2016","2017"&gt;
+              &lt;/cubx-core-slot-init&gt;
+          &lt;/cubx-core-init&gt;
+      &lt;/bar-chart&gt;
 
 ...
 
