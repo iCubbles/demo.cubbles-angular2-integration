@@ -1,31 +1,25 @@
 <main>
   <div class="container">
     <article>
-      <h3>Demo 4</h3>
-      <p class="flow-text">This demo shows how to easily integrate Cubbles into an existing Angular 2 Application. The project is build with the
-        angular-cli and Cubbles Runtime Extension 2.3.0-SNAPSHOT (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
+      <p>The project is build with the Angular-CLI and Cubbles Runtime Extension 2.3.0-SNAPSHOT (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
           target="_blank">source on github</a>)
       </p>
     </article>
 
-    <div class="divider"></div>
-
+    <h4>Demo 4</h4>
     <article>
-      <p>
+      <p  class="flow-text">
         In this given scenario the Cubbles component instance is wrapped in a <code>@Directive</code> with a selector named
-        "
-        <code>&lt;cubx-date-input&gt;</code>" same as the cubbles component. The Input slots are bound with <code>@Input</code>
+        "<code>&lt;cubx-date-input&gt;</code>" same as the Cubbles component. The Input slots are bound with <code>@Input</code>
         and can be set inline <code>[label]="label"</code>, where <code>label</code> can be a fixed value or a variable of
-        the <code>@Component</code>. The output slots are bound via an Event <code>valueChanged</code> marked as <code>@Output</code>
+        the <code>@Component</code>. The output slots are bound via an event <code>valueChanged</code> marked as <code>@Output</code>
         and can be listened on from the <code>@Component</code> or via a simple set inline.
       </p>
     </article>
 
-    <div class="divider"></div>
-
     <article>
       <p>
-       In comparison to the directive in Demo2, this Directive also handles the output slots of a cubbles component. After
+       In comparison to the directive in Demo2, this directive also handles the output slots of a Cubbles component. After
        the <code>window:cifReady</code> event, a simple onchange event was added to the element, you can wait for anything,
        even an event from outside of the component or a timer. You can even create a complex object and emit it.
       </p>

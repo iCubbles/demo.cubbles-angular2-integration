@@ -29,14 +29,14 @@ ng new cubbles-angular2-integration
 cd cubbles-angular2-integration
 ```
 
-3. create three components, angular-cli will also add them to app.module.ts
+3. create 3 components, angular-cli will also add them to app.module.ts
 ```
 ng generate component demo1
 ng generate component demo2
 ng generate component demo3
 ```
 
-4. createt the directive for the cubbles component, just copy-paste the content from this repository
+4. create the directive for the cubbles component, just copy-paste the content from this repository
 ```
 ng generate directive pie-chart
 ng generate directive date-input

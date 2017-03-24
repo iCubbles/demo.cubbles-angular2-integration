@@ -1,7 +1,7 @@
 #Cubbles meets Angular2
 This repository contains some examples how to integrate Cubbles in an Angular2 application.
 
-[Want to get to know the Cubbles Platform?](https://cubbles.github.io/)
+All about the Cubbles Platform at <https://cubbles.github.io/>
 
 ##Server side rendering vs client side rendering
 
@@ -16,5 +16,5 @@ We prepared two different scenarios, the default Angular2 way is to load and ren
 </html>
 ```
 
-This is the Response of Webserver, everything else is then loaded by the client. 
-Another approach is the let Node.js render the Angular2 code server side.
+This is the response of the webserver, everything else is loaded by the client. 
+Another approach is the let Node.js render the Angular2 code on server side.
