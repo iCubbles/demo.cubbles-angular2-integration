@@ -20,7 +20,7 @@ or just follow this steps and create your own demo:
 
 1. install angular-cli globally
 ```
-npm install -g angular-cli
+npm install -g angular-cli@1.0.0-beta.28.3
 ```
 
 2. generate a new Angular2 application, with everything you need  

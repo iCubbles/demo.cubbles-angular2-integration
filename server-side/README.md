@@ -15,8 +15,9 @@ Angular Universal apps, its called [universal-cli](https://www.npmjs.com/package
 
 1. install angular-cli and universal-cli globally
 ```
-$ npm install -g angular-cli
-$ npm install -g universal-cli
+$ npm install -g angular-cli@1.0.0-beta.28.3
+$ npm install -g universal-cli@1.0.0-alpha.universal.3
+
 ```
 
 2. Clone this repository and run 
