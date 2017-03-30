@@ -1,6 +1,6 @@
 # Server Side Integration in Action
 
-As the server side rendering needs server-side functionality this can't be served directly form Github.
+As the server side rendering needs server-side functionality this can't be served directly from Github.
 
 This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to get an Angular2 application is the [angular-cli](https://github.com/angular/). 
 For server side rendering check [Angular Universal](https://universal.angular.io/). There is a fork of the angular-cli repository, especially for creating
