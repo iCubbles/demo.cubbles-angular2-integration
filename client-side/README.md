@@ -1,9 +1,9 @@
-#Client Side Integration in Action
+# Client Side Integration in Action
 
 Online demo: <https://rawgit.com/iCubbles/demo.cubbles-angular2-integration/master/client-side/dist/index.html>
 
 
-##Developer Notes
+## Developer Notes
 This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to get an Angular2 application is the [angular-cli](https://github.com/angular/). 
 
 You can just clone this repository and run 

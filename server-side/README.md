@@ -1,4 +1,4 @@
-#Server Side Integration In Action
+# Server Side Integration In Action
 
 As the server side rendering needs server-side functionality this can't be served directly form Github.
 
