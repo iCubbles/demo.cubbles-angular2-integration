@@ -1,18 +1,12 @@
 <main>
     <div class="container">
-        <article>
-            <p>The project is build with the Angular-CLI and Cubbles Runtime Extension 2.2.2
-                (<a href="https://github.com/cubbles/cubx.core.rte/tree/master/webpackages/cubx.core.rte"
-                    target="_blank">sources on github</a>).
-            </p>
-        </article>
-
         <h4>Demo 1: Enable Angular to use custom elements.</h4>
         <article>
-            <p class="flow-text">
-                The simplest way to add a Cubbles component is to add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>@NgModule</code>
-                -
-                allowing custom HTML Elements to be used. Just define a <code>window.cubx.CRCInit</code> object to
+            <p>
+                To use any Cubbles component it is required to add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>@NgModule</code>,
+                allowing custom HTML Elements to be used.
+
+                Additionally define a <code>window.cubx.CRCInit</code> object to
                 declare related dependencies on component level.
             </p>
         </article>

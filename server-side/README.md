@@ -1,9 +1,4 @@
-#Cubbles meets Angular2 (server side rendering)
-This repository contains some examples on how to integrate Cubbles into an Angular2 based application.
-
-[Want to learn more about the Cubbles Platform?](https://cubbles.github.io/)
-
-##See examples in action
+#Server Side Integration In Action
 
 As the server side rendering needs server-side functionality this can't be served directly form Github.
 
@@ -11,12 +6,17 @@ This sample uses [Node.js](https://nodejs.org/en/), the best and fastest way to 
 For server side rendering check [Angular Universal](https://universal.angular.io/). There is a fork of the angular-cli repository, especially for creating
 Angular Universal apps, its called [universal-cli](https://www.npmjs.com/package/universal-cli).
 
-### PreRequisits
+## PreRequisits
 
 1. install angular-cli and universal-cli globally
 ```
 $ npm install -g angular-cli@1.0.0-beta.28.3
 $ npm install -g universal-cli@1.0.0-alpha.universal.3
+
+# note: npm6 requires to manually install some peer-dependencies for typescript
+$ npm install -g zone.js@0.7.7
+$ npm install -g webpack@2.2.1
+$ npm install -g rxjs@5.2.0
 
 ```
 
@@ -26,7 +26,7 @@ cd server-side
 npm install
 ```
 
-### Run it
+## Run it
 ```
 $ ung serve
 ```
